@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lab 3.1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vu Minh Quang">
+    <meta name="description" content="Use Vuejs create webpage (D HD)">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Style CSS  -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Vue js download -->
+    <script src="vuejs/vue.js"></script>
+
+    <!-- Vue form CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="row">
+            <div class="col-md-12" id="title">
+                <p>Flash Cards Vue JS</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <nav id="nav_bar" class="w-100">
+                <div class="nav nav-tabs">
+                    <router-link class="nav-link" :class="{ active: $route.path === '/' }" role="tab"
+                        aria-controls="nav-home" aria-selected="true" to="/">Home</router-link>
+
+                    <router-link class="nav-link" :class="{ active: $route.path === '/flashcard' }" role="tab"
+                        aria-controls="nav-flashcard" aria-selected="true" to="/flashcard">Flash Card</router-link>
+
+                    <router-link class="nav-link" :class="{ active: $route.path === '/about' }" role="tab"
+                        aria-controls="nav-about" aria-selected="true" to="/about">About</router-link>
+
+                    <router-link class="nav-link" :class="{ active: $route.path === '/signin' }" role="tab"
+                        aria-controls="nav-signin" aria-selected="true" to="/signin">Sign in</router-link>
+                </div>
+            </nav>
+        </div>
+
+        <hr>
+
+        <div class="container">
+            <div class="main">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+
+                        <router-view></router-view>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <script src="vuejs/data.js"></script>
+    <script src="vuejs/flashcards.js"></script>
+
+
+
+    <!-- Bootstrap javascript plug-ins -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!---------------------------------------- HTML5shiv ---------------------------------------->
+    <script>
+        if (document.documentMode && document.documentMode < 9) {
+            var script1 = document.createElement('script');
+            script1.src = 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js';
+            document.head.appendChild(script1);
+
+            var script2 = document.createElement('script');
+            script2.src = 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js';
+            document.head.appendChild(script2);
+        }
+    </script>
+</body>
+
+</html>

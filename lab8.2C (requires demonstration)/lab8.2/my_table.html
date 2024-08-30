@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Marks</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vu Minh Quang">
+    <meta name="description" content="Create table with pagination">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Vuetify -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.css" rel="stylesheet"> -->
+
+    <!-- Vue.js -->
+    <script src="vuejs/vue.js"></script>
+
+    <!-- Vue Pagination -->
+    <script src="https://unpkg.com/vuejs-paginate-next@latest/dist/vuejs-paginate-next.umd.js"></script>
+
+    <!-- Vuetify JavaScript -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.js"></script> -->
+
+    <!-- App Script -->
+    <script src="vuejs/my_table.js" defer></script>
+
+    <style>
+        .currentPage a {
+            background-color: #007bff;
+            color: white;
+            border-radius: 0.25rem;
+        }
+        .page-item {
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <h1> {{ title }} </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-11 mx-auto">
+                <my-table></my-table>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Menu List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vu Minh Quang">
+    <meta name="description" content="Create a menu list webpage">
+    <meta name="keyword" content="VueJS, component with props">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Vue js download -->
+    <script src="vuejs/vue.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Menu List</h1>
+        </div>
+
+        <div id="app">
+            <mymenu v-bind:menu="['Home', 'Settings', 'About']"></mymenu>
+        </div>
+    </div>
+
+
+    <script src="vuejs/appmenulist.js"></script>
+
+    <!-- Bootstrap javascript plug-ins -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

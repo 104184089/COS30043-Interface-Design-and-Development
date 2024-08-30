@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vu Minh Quang">
+    <meta name="description" content="Create a small phone registration web application">
+    <meta name="keyword" content="VueJS, conditional and loop directive">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        #android,
+        #ios,
+        #win {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Registration App: Cloud Service</h1>
+        </div>
+
+        <div id="app">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Login Information</h2>
+                    <p>
+                        <label for="username">Enter user name:&nbsp;</label>
+                        <input id="username" type="text" v-model="username">
+                    </p>
+                    <p>
+                        <label for="pswd1">Enter password:&nbsp;</label>
+                        <input id="pswd1" type="password" v-model="pswd1">
+                    </p>
+                    <p>
+                        <label for="pswd2">Re-enter password:&nbsp;</label>
+                        <input id="pswd2" type="password" v-model="pswd2"><span v-if="pswd2 !== pswd1">Password does not
+                            match</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h2>Phone Information</h2>
+                    <p>Operating System <br>
+                        <input type="radio" id="android" value="Android" name="system" v-model="system.os" checked>
+                        <label for="android">Android</label>
+
+                        <input type="radio" id="ios" value="IOS" name="system" v-model="system.os">
+                        <label for="ios">IOS</label>
+
+                        <input type="radio" id="win" value="Windows" name="system" v-model="system.os">
+                        <label for="win">Windows</label>
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <h2>Model</h2>
+                    <p>Select phone model:
+                        <select v-model="system.model">
+                            <option v-for="system in phones" :value="system.model"> {{ system.model }} </option>
+                        </select>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Summary</h2>
+                    <ul>
+                        <li>Username: {{ username }} </li>
+                        <li>OS: {{ system.os }} </li>
+                        <li>Phone: {{ system.model }} </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Bootstrap javascript plug-ins -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="vuejs/vue.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    resource: [
+                        { model: 'HTC 10', os: 'Android' },
+                        { model: 'Nokia 6', os: 'Android' },
+                        { model: 'Samsung Galaxy 20 Ultra', os: 'Android' },
+                        { model: 'IDD VIOS Non Windows', os: 'Android' },
+                        { model: 'iPhone X', os: 'IOS' },
+                        { model: 'iPhone Xs Max', os: 'IOS' },
+                        { model: 'iPhone 11 Pro Max', os: 'IOS' },
+                        { model: 'IDD Windows Non Android', os: 'IOS' },
+                        { model: 'HP Elite x3', os: 'Windows' },
+                        { model: 'Microsoft 950', os: 'Windows' },
+                        { model: 'Microsoft 950XL', os: 'Windows' },
+                        { model: 'IDD VIOS Non Android', os: 'Windows' }
+                    ],
+                    system: { model: "", os: "Android" },
+                    username: '',
+                    pswd1: '',
+                    pswd2: '',
+                };
+            },
+
+            computed: {
+                phones() {
+                    return this.resource.filter((system) => system.os.match(this.system.os))
+                }
+            },
+
+        }).mount('#app');
+    </script>
+
+</body>
+
+</html>

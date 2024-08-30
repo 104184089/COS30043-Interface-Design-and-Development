@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vu Minh Quang">
+    <meta name="description" content="Single Page App">
+    <title>Lab 9.1</title>
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- JavaScript bootstrap -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script Vue.js & Vue Router -->
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Load Vue Paginate JS file-->
+    <script src="js/vuejs-paginate.js"></script>
+
+    <!-- load component javascript files -->
+    <script src="js/components/app-nameTest.js" defer></script>
+    <script src="js/components/app-postManagement.js" defer></script>
+    <script src="js/components/app-studentMark.js" defer></script>
+
+    <!-- Main JS file  -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <nav-bar></nav-bar>
+        <div class="container">
+            <router-view></router-view>
+        </div>
+    </div>
+</body>
+
+</html>

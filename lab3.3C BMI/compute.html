@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BMI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vu Minh Quang">
+    <meta name="description" content="Use  conditional directive to compute the body mass index (BMI)">
+    <meta name="keyword" content="VueJS, conditional directive">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Compute App</h1>
+        </div>
+
+        <div id="app">
+
+
+            <p>
+                <label for="numWt">Enter weight in kilograms:&nbsp;</label>
+                <input id="numWt" type="number" v-model="numWt">
+            </p>
+
+            <p>
+                <label for="numHt">Enter height in centimetres:&nbsp;</label>
+            <input id="numHt" type="number" v-model="numHt">
+            </p>
+
+
+            <p>
+                Computed BMI is: {{ result }}
+                <span v-if="result === ''"></span>
+                <span v-else-if="result < 18.5">Underweight</span>
+                <span v-else-if="result >= 18.5 && result < 25">Normal weight</span>
+                <span v-else-if="result >= 25 && result < 30">Overweight</span>
+                <span v-else-if="result >= 30">Obese</span>
+            </p>
+
+
+        </div>
+    </div>
+
+
+    <script src="vuejs/vue.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    numWt: 0,
+                    numHt: 0,
+                    result: ''
+                };
+            },
+
+            methods: {
+                calculateBMI() {
+                    const weight = this.numWt
+                    const height = this.numHt 
+
+                    if (height > 0 && weight > 0) {
+                        this.result = (weight / ((height * 0.01) * (height * 0.01))).toFixed(2)
+                    } else {
+                        this.result = '';
+                    }
+                }
+            },
+
+            watch: {
+                numHt: 'calculateBMI',
+                numWt: 'calculateBMI',
+            }
+            
+
+        }).mount('#app');
+    </script>
+
+    <!-- Bootstrap javascript plug-ins -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

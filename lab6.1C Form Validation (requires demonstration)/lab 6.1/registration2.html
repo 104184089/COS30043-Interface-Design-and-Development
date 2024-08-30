@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vu Minh Quang">
+    <meta name="description" content="Form and Validation">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Vuetify -->
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.css" rel="stylesheet">
+
+    <!-- Vue.js -->
+    <script src="vuejs/vue.js"></script>
+
+    <!-- Vuetify JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- App Script -->
+    <script src="vuejs/appregistration2.js" defer></script>
+
+    <link rel="stylesheet" href="custom_css.css">
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-main>
+                <v-container>
+                    <v-card class="form-container">
+                        <h1 class="text-center mb-4">Registration Form</h1>
+                        <v-form ref="myForm" v-model="valid" method="post"
+                            action="https://mercury.swin.edu.au/it000000/formtest.php">
+                            <v-row>
+                                <v-col cols="12">
+                                    <v-text-field name="fname" v-model="fname" :rules="nameRules"
+                                        label="First Name"></v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="12">
+                                    <v-text-field name="lname" v-model="lname" :rules="nameRules"
+                                        label="Last Name"></v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="12">
+                                    <v-text-field name="uname" v-model="uname" :rules="userNameRules"
+                                        label="User name"></v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="6">
+                                    <v-text-field name="pwsd" v-model="pwsd" :rules="pwsdRules" label="Password"
+                                        type="password" required></v-text-field>
+                                </v-col>
+                                <v-col cols="6">
+                                    <v-text-field name="repwsd" v-model="repwsd" :rules="[(v) => !!v || 'Re-enter password is required',
+                                        (v) => v === pwsd || 'Passwords do not match']" label="Re-password"
+                                        type="password" required></v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="6">
+                                    <v-text-field name="email" v-model="email" :rules="emailRules" label="Email"
+                                        required></v-text-field>
+                                </v-col>
+                                <v-col cols="6">
+                                    <v-text-field name="mobile" v-model="mobile" :rules="mobileRules"
+                                        label="Mobile number" required></v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="12">
+                                    <v-text-field name="address" v-model="address" label="Street Address (Optional)"
+                                        maxlength="40" :rules="addressRules"></v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="6">
+                                    <v-text-field name="sub" v-model="sub" label="Suburb (Optional)"
+                                        maxlength="20"></v-text-field>
+                                </v-col>
+                                <v-col cols="6">
+                                    <v-text-field name="post" v-model="post" :rules="postRules"
+                                        label="Postcode"></v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="12" class="btn-container">
+                                    <v-btn color="primary" @click="toggle">Terms and Condition</v-btn>
+                                    <v-btn type="submit" color="success" @click="validate">Submit</v-btn>
+                                </v-col>
+                            </v-row>
+                            <v-row v-if="show">
+                                <v-col cols="12">
+                                    <v-card class="terms-card">
+                                        <v-card-title>Terms and Condition</v-card-title>
+                                        <v-card-text>
+                                            Please read these terms and conditions of use carefully before accessing,
+                                            using or obtaining any materials, information, products or services.
+                                        </v-card-text>
+                                    </v-card>
+                                </v-col>
+                            </v-row>
+                        </v-form>
+                    </v-card>
+                </v-container>
+            </v-main>
+        </v-app>
+    </div>
+</body>
+
+</html>

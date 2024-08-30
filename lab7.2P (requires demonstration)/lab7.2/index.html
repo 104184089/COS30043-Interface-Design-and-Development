@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Retrieving Data from a Text File</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vu Minh Quang">
+    <meta name="description" content="Retrieving Data from a Text File">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Vuetify -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.css" rel="stylesheet"> -->
+
+    <!-- Vue.js -->
+    <script src="vuejs/vue.js"></script>
+
+    <!-- Vuetify JavaScript -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.js"></script> -->
+
+    <!-- App Script -->
+    <script src="vuejs/retrieving_data.js" defer></script>
+
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1>{{ message }}</h1>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <th scope="col">Code</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">CP</th>
+                    <th scope="col">Type</th>
+                </thead>
+                <tbody>
+                    <tr v-for="unit in units">
+                        <td>{{ unit.code }}</td>
+                        <td>{{ unit.desc }}</td>
+                        <td>{{ unit.cp }}</td>
+                        <td>{{ unit.type }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p v-show="err"><strong>Errors: {{ err }} </strong></p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

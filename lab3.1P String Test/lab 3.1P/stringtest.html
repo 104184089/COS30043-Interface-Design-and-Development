@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lab 3.1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vu Minh Quang">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <style>
+        #success {
+            color: green;
+        }
+
+        body {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>String Test</h1>
+    <div id="app">
+        <p>Please enter your name:
+            <input type="text" v-model="userName">
+        </p>
+
+
+        <p id="success" v-if="userName.toLowerCase() == 'vu minh quang'">Awesome name!</p>
+        <p v-else-if="userName == ''"></p>
+        <p v-else> {{ userName }} is not my name!</p>
+
+    </div>
+
+
+    <script src="vuejs/vue.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    userName: "",
+                }
+            }
+        }).mount('#app');
+    </script>
+
+
+    <!-- Bootstrap javascript plug-ins -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        if (document.documentMode && document.documentMode < 9) {
+            var script1 = document.createElement('script');
+            script1.src = 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js';
+            document.head.appendChild(script1);
+
+            var script2 = document.createElement('script');
+            script2.src = 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js';
+            document.head.appendChild(script2);
+        }
+    </script>
+</body>
+
+</html>
